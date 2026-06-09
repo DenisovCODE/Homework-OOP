@@ -41,7 +41,7 @@ class Student:
         all_grades = []
         for grades_list in self.grades.values():
             all_grades.extend(grades_list)
-            return sum(all_grades) / len(all_grades) if all_grades else 0.0
+        return sum(all_grades) / len(all_grades) if all_grades else 0.0
     
     def __lt__(self, other):
         if not isinstance(other, Student):
@@ -137,6 +137,7 @@ student2.rate_lecture(lecturer1, 'Python', 8)
 student2.rate_lecture(lecturer1, 'Python', 5)
 student2.rate_lecture(lecturer2, 'SQL', 7)
 student2.rate_lecture(lecturer2, 'SQL', 8)
+print(student1.rate_lecture(lecturer1, 'SQL', 10)) # ОШИБКА: У лектора нет курса SQL
 
 reviewer1.rate_hw(student1, 'Python', 8)
 reviewer1.rate_hw(student1, 'Python', 7)
@@ -146,6 +147,7 @@ reviewer1.rate_hw(student2, 'SQL', 8)
 reviewer1.rate_hw(student2, 'SQL', 4)
 reviewer2.rate_hw(student2, 'GIT', 8)
 reviewer2.rate_hw(student2, 'GIT', 6)
+print(reviewer1.rate_hw(student1, 'SQL', 10)) # ОШИБКА: У студента нет курса SQL
 
 print('===НАШИ СТУДЕНТЫ===')
 print(student1)
